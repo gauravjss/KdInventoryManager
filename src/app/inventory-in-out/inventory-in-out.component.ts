@@ -39,12 +39,18 @@ export class InventoryInOutComponent implements OnInit {
   }
 
   onSelect(_id: string) {
+    console.log(_id)
+    if (_id === 'select') {
+      this.showDetails = false;
+      return;
+    }
     this.showMessage = false;
     this.inventoryItem = this.inventoryList.find( item => item._id === _id );
     this.showDetails = true;
   }
 
   onUpdate(action: string) {
+
     const quantity = this.inventoryInOutForm.value.quantity;
     this.inventoryService.updateInventory(this.inventoryItem, action, quantity).subscribe(
       (result) => {
@@ -53,7 +59,11 @@ export class InventoryInOutComponent implements OnInit {
           this.showMessage = true;
           this.updatedItem = JSON.parse(JSON.stringify(result)).item.Name;
         }
-        this.inventoryInOutForm.reset();
+        this.inventoryInOutForm.reset( );
+        this.inventoryInOutForm.patchValue({
+          itemName: 'select'
+          // other controller names goes here
+        });
         this.showDetails = false;
         this.inventoryService.getInventoryData().subscribe(
           (inventoryArray) => {

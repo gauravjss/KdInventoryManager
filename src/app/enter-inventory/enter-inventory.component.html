@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12"  style="margin: auto">
+      <h3>Add Item to Inventory</h3>
       <form  [formGroup]="inventryItemForm" (ngSubmit)="onAdd()" novalidate>
         <div class="form-group">
           <label for="itemName">Item Name</label>
@@ -11,9 +12,16 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="description">Item Description</label>
+          <label for="description">Item Description (Optional)</label>
           <input type="description"  formControlName="description" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter item description"  >
           <small id="descriptionHelp" class="form-text text-muted">Anything informative about the item like brand, store etc.</small>
+        </div>
+        <div class="form-group" >
+          <label for="barcode">Barcode (Optional)  </label>
+          <input type="text"  formControlName="barcode" class="form-control" id="barcode"  placeholder="Enter Barcode Information" >
+        </div> <div class="form-group" >
+          <label for="price">Price (Optional)  </label>
+          <input type="text"  formControlName="price" class="form-control" id="price"  placeholder="Enter Price" >
         </div>
         <div class="form-group" >
           <label for="weight">Weight  </label>
@@ -28,7 +36,6 @@
             Please enter a valid stock quantity
           </div>
         </div>
-
         <div class="form-group" >
           <label for="location">Select Stocking Room</label>
           <select class="form-control" formControlName="location" id="location" required >
@@ -39,7 +46,10 @@
             Stock Room is Required
           </div>
         </div>
-
+        <div *ngIf="showServiceError"
+             class="alert alert-danger">
+          {{serviceErrorMessage}}
+        </div>
         <button type="submit" class="btn btn-primary" [disabled]="!inventryItemForm.valid" >Submit</button> &nbsp;
         <button type="button" class="btn btn-secondary" (click)="inventryItemForm.reset()">Reset</button>
       </form>

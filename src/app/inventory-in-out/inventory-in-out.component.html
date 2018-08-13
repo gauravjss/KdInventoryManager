@@ -1,23 +1,48 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <h3>IN/OUT Inventory</h3>
       <form  [formGroup]="inventoryInOutForm" novalidate>
         <div class="form-group" >
-          <label for="itemName">Select Inventory Item</label>
-          <select class="form-control" formControlName="itemName" id="itemName" (change)="onSelect(itemName.value)" required >
+          <label for="itemName">Select Inventory Item to Continue</label>
+          <select class="form-control" formControlName="itemName" id="itemName"  (change)="onSelect(itemName.value)" required >
+            <option value="select" selected data-default>Select your Item</option>
             <option *ngFor="let itemName of itemNamesList" [value]="itemName._id">{{itemName.name}}</option>
           </select>
           <div [hidden]="itemName.valid || itemName.untouched"
                class="alert alert-danger">
-            Item Name is Required
+            Please select an item to continue
           </div>
         </div>
         <div *ngIf="showDetails">
-        <div>
-          <b>Current Stock</b> : {{inventoryItem.Quantity}}
-        </div>
-          <div>
-            <b>Location</b> : {{inventoryItem.Location}}
+          <div class="container padding-top-10">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <h5 class="card-header">{{inventoryItem.Name | capitalize: true}}</h5>
+                  <div class="card-body">
+                    <table class="table" role="table">
+                      <tr role="row">
+                        <td colspan="3" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template></td>
+                      </tr>
+                      <tbody role="rowgroup">
+                      <tr>
+                        <td width="33%" role="cell"><b>Weight: </b><span *ngIf="inventoryItem.Weight ; else blank">{{inventoryItem.Weight}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template></td>
+                        <td width="33%" role="cell"><b>Quantity: </b>{{inventoryItem.Quantity}}</td>
+                        <td width="34%" role="cell"><b>Location: </b>{{inventoryItem.Location}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <hr>
           <div class="form-group">

@@ -17,6 +17,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MasterInvComponent } from './master-inv/master-inv.component';
 import { InventoryInOutComponent } from './inventory-in-out/inventory-in-out.component';
+import { AddSuccessComponent } from './add-success/add-success.component';
+import { UpdateSuccessComponent } from './update-success/update-success.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { InventoryInOutComponent } from './inventory-in-out/inventory-in-out.com
     CapitalizePipe,
     FilterPipe,
     MasterInvComponent,
-    InventoryInOutComponent
+    InventoryInOutComponent,
+    AddSuccessComponent,
+    UpdateSuccessComponent
   ],
   imports: [
     BrowserModule,

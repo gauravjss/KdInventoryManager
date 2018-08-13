@@ -3,7 +3,9 @@ export enum MODULE_URL {
   INV_ADD = 'add_inventory',
   INV_IN_OUT = 'in_out_inventory',
   INV_ROOMS = 'manage_room_inventory',
-  DASHBOARD= 'dashboard'
+  DASHBOARD= 'dashboard',
+  ADD_SUCCESS = 'add_success',
+  UPDATE_SUCCESS = 'update_success'
 }
 
 export enum ACTIONS {
