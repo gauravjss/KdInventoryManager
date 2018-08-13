@@ -1,0 +1,28 @@
+<div class="container padding-top-10">
+  <div class="row">
+    <div class="col-12 padding-top-10" style="cursor: pointer" *ngFor="let inventoryItem of inventoryData$ | async | filter: filterItem : filterField ; let i =index">
+      <div class="card">
+        <h5 class="card-header">{{inventoryItem.Name | capitalize: true}}</h5>
+        <div class="card-body">
+          <table class="table" role="table">
+            <tr role="row">
+            <th width="50%" scope="col" role="columnheader">Description</th>
+            <th width="25%" scope="col" role="columnheader">Quantity</th>
+            <th width="25%" scope="col" role="columnheader">Location</th>
+            </tr>
+            <tbody role="rowgroup">
+            <tr>
+              <td width="50%" role="cell" > <span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
+                <ng-template #blank>
+                N/A
+                </ng-template></td>
+              <td width="25%" role="cell">{{inventoryItem.Quantity}}</td>
+              <td width="25%" role="cell">{{inventoryItem.Location}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

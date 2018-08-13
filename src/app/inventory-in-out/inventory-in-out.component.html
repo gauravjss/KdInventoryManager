@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form  [formGroup]="inventoryInOutForm" novalidate>
+        <div class="form-group" >
+          <label for="itemName">Select Inventory Item</label>
+          <select class="form-control" formControlName="itemName" id="itemName" (change)="onSelect(itemName.value)" required >
+            <option *ngFor="let itemName of itemNamesList" [value]="itemName._id">{{itemName.name}}</option>
+          </select>
+          <div [hidden]="itemName.valid || itemName.untouched"
+               class="alert alert-danger">
+            Item Name is Required
+          </div>
+        </div>
+        <div *ngIf="showDetails">
+        <div>
+          <b>Current Stock</b> : {{inventoryItem.Quantity}}
+        </div>
+          <div>
+            <b>Location</b> : {{inventoryItem.Location}}
+          </div>
+          <hr>
+          <div class="form-group">
+            <label for="quantity">Enter IN/OUT Stock Quantity</label>
+            <input type="tel" formControlName="quantity" class="form-control" id="quantity" aria-describedby="stockHelp" placeholder="Enter values 1 - 99">
+            <small id="stockHelp" class="form-text text-muted">Please enter numbers only, maximum 99.</small>
+            <div [hidden]="quantity.valid || quantity.pristine"
+                 class="alert alert-danger">
+              Please enter a valid stock quantity
+            </div>
+          </div>
+        <button type="submit" class="btn btn-success" [disabled]="!inventoryInOutForm.valid" (click)="onUpdate(actions.IN)" >IN</button> &nbsp;
+        <button type="button" class="btn btn-danger" [disabled]="!inventoryInOutForm.valid" (click)="onUpdate(actions.OUT)" >OUT</button>
+        </div>
+        <div *ngIf="showMessage"
+             class="alert alert-success">
+          Inventory Stock Successfully Updated for <em>{{updatedItem}} </em> in the Server <br/>Select another Item to update.
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12"  style="margin: auto">
+      <form  [formGroup]="inventryItemForm" (ngSubmit)="onAdd()" novalidate>
+        <div class="form-group">
+          <label for="itemName">Item Name</label>
+          <input type="text"  formControlName="itemName" class="form-control" id="itemName"  placeholder="Enter item name"  >
+          <div [hidden]="itemName.valid || itemName.pristine"
+               class="alert alert-danger">
+           Item Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Item Description</label>
+          <input type="description"  formControlName="description" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter item description"  >
+          <small id="descriptionHelp" class="form-text text-muted">Anything informative about the item like brand, store etc.</small>
+        </div>
+        <div class="form-group" >
+          <label for="weight">Weight  </label>
+          <input type="text"  formControlName="weight" class="form-control" id="weight"  placeholder="Enter Weight or Volume with units" >
+        </div>
+        <div class="form-group">
+          <label for="quantity">Stock Quantity</label>
+          <input type="tel" formControlName="quantity" class="form-control" id="quantity" aria-describedby="stockHelp" placeholder="Enter values 1 - 99">
+          <small id="stockHelp" class="form-text text-muted">Please enter numbers only, maximum 99.</small>
+          <div [hidden]="quantity.valid || quantity.pristine"
+               class="alert alert-danger">
+            Please enter a valid stock quantity
+          </div>
+        </div>
+
+        <div class="form-group" >
+          <label for="location">Select Stocking Room</label>
+          <select class="form-control" formControlName="location" id="location" required >
+            <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+          </select>
+          <div [hidden]="location.valid || location.untouched"
+               class="alert alert-danger">
+            Stock Room is Required
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!inventryItemForm.valid" >Submit</button> &nbsp;
+        <button type="button" class="btn btn-secondary" (click)="inventryItemForm.reset()">Reset</button>
+      </form>
+    </div>
+  </div>
+</div>
