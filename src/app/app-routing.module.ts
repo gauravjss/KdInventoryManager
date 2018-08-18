@@ -9,6 +9,7 @@ import {AddSuccessComponent} from './add-success/add-success.component';
 import {UpdateSuccessComponent} from './update-success/update-success.component';
 import {ChooseInventoryComponent} from './choose-inventory/choose-inventory.component';
 import {EditInventoryComponent} from './edit-inventory/edit-inventory.component';
+import {InOutSuccessComponent} from './in-out-success/in-out-success.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: MODULE_URL.DASHBOARD , pathMatch: 'full'},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: MODULE_URL.INV_IN_OUT, component: InventoryInOutComponent },
   {path: MODULE_URL.INV_EDIT, component: EditInventoryComponent },
   {path: MODULE_URL.ADD_SUCCESS, component: AddSuccessComponent},
+  {path: MODULE_URL.IN_OUT_SUCCESS, component: InOutSuccessComponent},
   {path: MODULE_URL.UPDATE_SUCCESS, component: UpdateSuccessComponent},
 ];
 

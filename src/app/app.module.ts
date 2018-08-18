@@ -21,6 +21,8 @@ import { AddSuccessComponent } from './add-success/add-success.component';
 import { UpdateSuccessComponent } from './update-success/update-success.component';
 import { ChooseInventoryComponent } from './choose-inventory/choose-inventory.component';
 import { EditInventoryComponent } from './edit-inventory/edit-inventory.component';
+import { InOutSuccessComponent } from './in-out-success/in-out-success.component';
+import { EditSuccessComponent } from './edit-success/edit-success.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { EditInventoryComponent } from './edit-inventory/edit-inventory.componen
     AddSuccessComponent,
     UpdateSuccessComponent,
     ChooseInventoryComponent,
-    EditInventoryComponent
+    EditInventoryComponent,
+    InOutSuccessComponent,
+    EditSuccessComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,106 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h3><marquee>Page under construction</marquee></h3>
+      <h3>Edit Inventory</h3>
+      <form  [formGroup]="inventoryEditForm" (ngSubmit)="onEdit()" novalidate>
+        <div>
+          <div class="container padding-top-10">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <h5 class="card-header">{{inventoryItem.Name | capitalize: true}}</h5>
+                  <div class="card-body">
+                    <table class="table" role="table">
+                      <tr role="row">
+                        <td colspan="2" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template></td>
+                        <td role="cell">
+                          <b>Barcode: </b><span *ngIf="inventoryItem.QR_Code ; else blank">{{inventoryItem.QR_Code}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template>
+                        </td>
+                      </tr>
+                      <tbody role="rowgroup">
+                      <tr>
+                        <td width="33%" role="cell"><b>Weight: </b><span *ngIf="inventoryItem.Weight ; else blank">{{inventoryItem.Weight}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template></td>
+                        <td width="33%" role="cell"><b>Quantity: </b>{{inventoryItem.Quantity}}</td>
+                        <td width="34%" role="cell"><b>Location: </b>{{inventoryItem.Location}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="form-group">
+          <label for="itemName">Item Name</label>
+          <input type="text"  formControlName="itemName" class="form-control" id="itemName"  placeholder="Enter item name"  >
+          <div [hidden]="itemName.valid || itemName.pristine"
+               class="alert alert-danger">
+            Item Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Item Description (Optional)</label>
+          <input type="text"  formControlName="description" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter item description"  >
+          <small id="descriptionHelp" class="form-text text-muted">Anything informative about the item like brand, store etc.</small>
+        </div>
+        <div class="form-group" >
+          <label for="barcode">Barcode (Optional)  </label>
+          <input type="tel"  formControlName="barcode" class="form-control" id="barcode"  placeholder="Enter Barcode Information" >
+        </div> <div class="form-group" >
+        <label for="price">Price (Optional)  </label>
+        <input type="text"  formControlName="price" class="form-control" id="price"  placeholder="Enter Price" >
+        <div [hidden]="price.valid || price.pristine"
+             class="alert alert-danger">
+          Please enter a valid Price
+        </div>
+      </div>
+        <div class="form-group" >
+          <label for="weight">Weight (Optional)  </label>
+          <input type="text"  formControlName="weight" class="form-control" id="weight"  placeholder="Enter Weight or Volume with units" >
+        </div>
+        <div class="form-group">
+          <label for="quantity">Stock Quantity</label>
+          <input type="tel" formControlName="quantity" class="form-control" id="quantity" aria-describedby="stockHelp" placeholder="Enter values 1 - 99">
+          <small id="stockHelp" class="form-text text-muted">Please enter numbers only, maximum 99.</small>
+          <div [hidden]="quantity.valid || quantity.pristine"
+               class="alert alert-danger">
+            Please enter a valid stock quantity
+          </div>
+        </div>
+        <div class="form-group" >
+          <label for="location">Select Stocking Room</label>
+          <select class="form-control" formControlName="location" id="location" required >
+            <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+          </select>
+          <div [hidden]="location.valid || location.untouched"
+               class="alert alert-danger">
+            Stock Room is Required
+          </div>
+        </div>
+        <!--<div *ngIf="showServiceError"
+             class="alert alert-danger">
+          {{serviceErrorMessage}}
+        </div>-->
+        <button type="submit" class="btn btn-primary" [disabled]="!inventoryEditForm.valid" >Update</button> &nbsp;
+        <button type="button" class="btn btn-secondary" (click)="inventoryEditForm.reset()">Reset</button>
+      </form>
+    </div>
+    <div *ngIf="showSuccessMessage"
+         class="alert alert-success">
+      Inventory Stock Successfully Updated for <em>{{updatedItem}} </em> in the Server <br/>
+      <h4>Select from below actions to continue</h4>
+      <hr>
     </div>
   </div>
 </div>

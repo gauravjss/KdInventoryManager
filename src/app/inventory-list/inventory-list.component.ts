@@ -24,12 +24,12 @@ export class InventoryListComponent implements OnInit {
   }
 
   navigate(inventoryItem: Inventory) {
-    this.router.navigateByUrl(this.navigationPath);
     if (this.navigationPath === MODULE_URL.INV_EDIT) {
       sessionStorage.setItem(SESSION_PARAMS.INV_EDIT, JSON.stringify(inventoryItem));
     } else {
       sessionStorage.setItem(SESSION_PARAMS.INV_IN_OUT, JSON.stringify(inventoryItem));
     }
+    this.router.navigateByUrl(this.navigationPath);
     console.log(inventoryItem);
   }
 

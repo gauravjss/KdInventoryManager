@@ -14,7 +14,7 @@ export class EnterInventoryComponent implements OnInit {
   showServiceError = false;
   serviceErrorMessage: string;
   locations: string[];
-  inventryItemForm: FormGroup;
+  inventoryItemForm: FormGroup;
   inventoryItem: Inventory = new Inventory();
   constructor(private inventoryService: InventoryService,
               private router: Router) { }
@@ -23,11 +23,11 @@ export class EnterInventoryComponent implements OnInit {
 
     this.locations = locationList;
 
-    this.inventryItemForm = new FormGroup({
+    this.inventoryItemForm = new FormGroup({
       itemName: new FormControl('', [Validators.required]),
       description: new FormControl(''),
       barcode: new FormControl(''),
-      price: new FormControl('0', [Validators.pattern('^[0-9]*$'), Validators.maxLength(4)]),
+      price: new FormControl('0', [Validators.pattern('^\\d+(\\.\\d{1,2})?$'), Validators.maxLength(6)]),
       weight: new FormControl(''),
       quantity: new FormControl('', [Validators.required,   Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
       location: new FormControl('Kitchen', [Validators.required])
@@ -50,7 +50,7 @@ export class EnterInventoryComponent implements OnInit {
   }
 
   setInventoryValues() {
-    const formValue = this.inventryItemForm.value;
+    const formValue = this.inventoryItemForm.value;
     this.inventoryItem.Name = formValue.itemName;
     this.inventoryItem.Description = formValue.description;
     this.inventoryItem.Weight = formValue.weight;
@@ -61,11 +61,11 @@ export class EnterInventoryComponent implements OnInit {
     console.log(this.inventoryItem);
   }
 
-  get itemName() {return this.inventryItemForm.get('itemName'); }
-  get description() {return this.inventryItemForm.get('description'); }
-  get weight() {return this.inventryItemForm.get('weight'); }
-  get quantity() {return this.inventryItemForm.get('quantity'); }
-  get location() {return this.inventryItemForm.get('location'); }
-  get price() {return this.inventryItemForm.get('price'); }
+  get itemName() {return this.inventoryItemForm.get('itemName'); }
+  get description() {return this.inventoryItemForm.get('description'); }
+  get weight() {return this.inventoryItemForm.get('weight'); }
+  get quantity() {return this.inventoryItemForm.get('quantity'); }
+  get location() {return this.inventoryItemForm.get('location'); }
+  get price() {return this.inventoryItemForm.get('price'); }
 
 }

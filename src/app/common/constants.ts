@@ -7,12 +7,15 @@ export enum MODULE_URL {
   INV_SELECT = 'select_inventory',
   DASHBOARD = 'dashboard',
   ADD_SUCCESS = 'add_success',
+  IN_OUT_SUCCESS = 'in_out_success',
+  EDIT_SUCCESS = 'edit_success',
   UPDATE_SUCCESS = 'update_success'
 }
 
 export enum SESSION_PARAMS {
   INV_EDIT = 'edit_item',
-  INV_IN_OUT = 'in_out_item'
+  INV_IN_OUT = 'in_out_item',
+  UPDATED_ITEM = 'updated_item'
 }
 
 export enum ACTIONS {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {InventoryService} from '../service/inventory.service';
 import {Inventory} from '../models/inventory';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ACTIONS, InventoryObj, MODULE_URL, SESSION_PARAMS} from '../common/constants';
+import {ACTIONS,  MODULE_URL, SESSION_PARAMS} from '../common/constants';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,10 +14,8 @@ export class InventoryInOutComponent implements OnInit {
 
   inventoryInOutForm: FormGroup;
   inventoryItem: Inventory;
-  showDetails = true;
   showSuccessMessage = false;
   showFailureMessage = false;
-  updatedItem: string;
   actions = ACTIONS;
   module_vars = MODULE_URL;
   constructor(private inventoryService: InventoryService, private router: Router) { }
@@ -36,12 +34,11 @@ export class InventoryInOutComponent implements OnInit {
             });
           }
         );*/
-    if (SESSION_PARAMS.INV_IN_OUT) {
+    if (sessionStorage.getItem(SESSION_PARAMS.INV_IN_OUT)) {
       this.inventoryItem = JSON.parse(sessionStorage.getItem(SESSION_PARAMS.INV_IN_OUT));
     }
     this.inventoryInOutForm = new FormGroup({
-      itemName: new FormControl('select', [Validators.required]),
-      quantity: new FormControl('', [Validators.required, Validators.maxLength(2)]),
+      quantity: new FormControl('', [Validators.required,   Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
     });
   }
 
@@ -53,9 +50,8 @@ export class InventoryInOutComponent implements OnInit {
       (result) => {
         console.log(result);
         if (JSON.parse(JSON.stringify(result)).status === 200) {
-          this.showSuccessMessage = true;
-          this.updatedItem = JSON.parse(JSON.stringify(result)).item.Name;
-          this.showDetails = false;
+          sessionStorage.setItem(SESSION_PARAMS.UPDATED_ITEM,  JSON.parse(JSON.stringify(result)).item.Name);
+          this.router.navigateByUrl(MODULE_URL.IN_OUT_SUCCESS);
         } else {
           this.showFailureMessage =  true;
         }
@@ -67,7 +63,6 @@ export class InventoryInOutComponent implements OnInit {
         this.showDetails = false;
       });
   }
-  get itemName() {return this.inventoryInOutForm.get('itemName'); }
   get quantity() {return this.inventoryInOutForm.get('quantity'); }
 
   /* onSelect(_id: string) {

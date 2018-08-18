@@ -14,7 +14,7 @@
             Please select an item to continue
           </div>
         </div>-->
-        <div *ngIf="showDetails">
+        <div>
           <div class="container padding-top-10">
             <div class="row">
               <div class="col-12">
@@ -23,10 +23,16 @@
                   <div class="card-body">
                     <table class="table" role="table">
                       <tr role="row">
-                        <td colspan="3" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
+                        <td colspan="2" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
                           <ng-template #blank>
                             N/A
                           </ng-template></td>
+                        <td role="cell">
+                          <b>Barcode: </b><span *ngIf="inventoryItem.QR_Code ; else blank">{{inventoryItem.QR_Code}}</span>
+                          <ng-template #blank>
+                            N/A
+                          </ng-template>
+                        </td>
                       </tr>
                       <tbody role="rowgroup">
                       <tr>
@@ -56,32 +62,6 @@
           </div>
         <button type="submit" class="btn btn-success" [disabled]="!inventoryInOutForm.valid" (click)="onUpdate(actions.IN)" >IN</button> &nbsp;
         <button type="button" class="btn btn-danger" [disabled]="!inventoryInOutForm.valid" (click)="onUpdate(actions.OUT)" >OUT</button>
-        </div>
-        <div *ngIf="showSuccessMessage"
-             class="alert alert-success">
-          Inventory Stock Successfully Updated for <em>{{updatedItem}} </em> in the Server <br/>
-          <h4>Select from below actions to continue</h4>
-          <hr>
-        </div>
-      <div *ngIf="showSuccessMessage">
-          <div class="col-12 col-md-6" (click)="navigateComponent(module_vars.INV_SELECT)" style="cursor: pointer">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://i.imgur.com/bKobrp6.png" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">In/Out</h5>
-                <p class="card-text">Manage another In/Out item entry </p>
-            </div>
-          </div>
-          </div>
-          <div class="col-12 col-md-6" (click)="navigateComponent(module_vars.INV_LIST)" style="cursor: pointer">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="https://i.imgur.com/NvjpwaI.png" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">View Inventory</h5>
-                <p class="card-text">View and Edit items in the Inventory</p>
-              </div>
-            </div>
-          </div>
         </div>
       <div *ngIf="showFailureMessage"
            class="alert alert-danger">
