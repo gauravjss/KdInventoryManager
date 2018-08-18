@@ -6,7 +6,7 @@ export class Inventory {
   Price: number;
   Quantity: number;
   Location: string;
-  QR_Code: number;
+  QR_Code: string;
   __v: number;
   _id: string;
 

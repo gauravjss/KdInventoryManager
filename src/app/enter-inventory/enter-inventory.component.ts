@@ -26,16 +26,30 @@ export class EnterInventoryComponent implements OnInit {
     this.inventryItemForm = new FormGroup({
       itemName: new FormControl('', [Validators.required]),
       description: new FormControl(''),
-      barcode: new FormControl('0'),
-      price: new FormControl('0'),
+      barcode: new FormControl(''),
+      price: new FormControl('0', [Validators.pattern('^[0-9]*$'), Validators.maxLength(4)]),
       weight: new FormControl(''),
-      quantity: new FormControl('', [Validators.required, Validators.maxLength(2)]),
+      quantity: new FormControl('', [Validators.required,   Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
       location: new FormControl('Kitchen', [Validators.required])
     });
   }
 
   onAdd() {
     this.showServiceError = false;
+    this.setInventoryValues();
+
+    this.inventoryService.addInventoryData(this.inventoryItem).subscribe((response) => {
+      console.log(response);
+      if (JSON.parse(JSON.stringify(response)).code !== 200) {
+        this.showServiceError = true;
+        this.serviceErrorMessage =  JSON.parse(JSON.stringify(response)).message;
+      } else {
+        this.router.navigateByUrl(MODULE_URL.ADD_SUCCESS);
+      }
+    });
+  }
+
+  setInventoryValues() {
     const formValue = this.inventryItemForm.value;
     this.inventoryItem.Name = formValue.itemName;
     this.inventoryItem.Description = formValue.description;
@@ -45,15 +59,6 @@ export class EnterInventoryComponent implements OnInit {
     this.inventoryItem.QR_Code =  formValue.barcode;
     this.inventoryItem.Price = formValue.price;
     console.log(this.inventoryItem);
-    this.inventoryService.addInventoryData(this.inventoryItem).subscribe((response) => {
-      if (JSON.parse(JSON.stringify(response)).code !== 200) {
-        this.showServiceError = true;
-        this.serviceErrorMessage =  JSON.parse(JSON.stringify(response)).message;
-      } else {
-        this.router.navigateByUrl(MODULE_URL.ADD_SUCCESS);
-      }
-      console.log(response);
-    });
   }
 
   get itemName() {return this.inventryItemForm.get('itemName'); }
@@ -61,5 +66,6 @@ export class EnterInventoryComponent implements OnInit {
   get weight() {return this.inventryItemForm.get('weight'); }
   get quantity() {return this.inventryItemForm.get('quantity'); }
   get location() {return this.inventryItemForm.get('location'); }
+  get price() {return this.inventryItemForm.get('price'); }
 
 }

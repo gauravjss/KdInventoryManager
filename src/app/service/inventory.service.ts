@@ -37,12 +37,11 @@ export class InventoryService implements OnInit  {
     "Name":" ${inventory.Name}",
     "Description":" ${inventory.Description}",
     "Price": ${inventory.Price},
-    "QR_Code": ${inventory.QR_Code},
+    "QR_Code": "${inventory.QR_Code}",
     "Weight":" ${inventory.Weight}",
     "Location":" ${inventory.Location}",
     "Quantity": ${inventory.Quantity}
     }`;
-    console.log(inventoryItemBody);
     return this._httpClient.post<any>(`${this.baseURL}/kdInventoryManager`,
       inventoryItemBody ,
       httpOptions).pipe(catchError(this.handleError));
@@ -61,7 +60,6 @@ export class InventoryService implements OnInit  {
     "Location":" ${inventory.Location}",
     "Quantity": ${inventory.Quantity}
     }`;
-    console.log(inventoryItemBody);
     return this._httpClient.patch<any>(`${this.baseURL}/kdInventoryManager/${inventory._id}/${action}/${quantity}`,
       inventoryItemBody ,
       httpOptions).pipe(catchError(this.handleError));

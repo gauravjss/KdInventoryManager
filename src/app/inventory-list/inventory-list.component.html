@@ -1,15 +1,21 @@
 <div class="container padding-top-10">
   <div class="row">
-    <div class="col-12 padding-top-10" style="cursor: pointer" *ngFor="let inventoryItem of inventoryData$ | async | filter: filterItem : filterField ; let i =index">
+    <div class="col-12 padding-top-10" (click)="navigate(inventoryItem)" style="cursor: pointer" *ngFor="let inventoryItem of inventoryData$ | async | filter: filterItem : filterField ; let i =index">
       <div class="card">
         <h5 class="card-header">{{inventoryItem.Name | capitalize: true}}</h5>
         <div class="card-body">
           <table class="table" role="table">
             <tr role="row">
-              <td colspan="3" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
+              <td colspan="2" role="cell" > <b>Description: </b><span *ngIf="inventoryItem.Description ; else blank">{{inventoryItem.Description}}</span>
                 <ng-template #blank>
                   N/A
                 </ng-template></td>
+              <td role="cell">
+                <b>Barcode: </b><span *ngIf="inventoryItem.QR_Code ; else blank">{{inventoryItem.QR_Code}}</span>
+                <ng-template #blank>
+                  N/A
+                </ng-template>
+              </td>
             </tr>
             <tbody role="rowgroup">
             <tr>

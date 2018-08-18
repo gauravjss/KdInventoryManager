@@ -1,11 +1,18 @@
 export enum MODULE_URL {
   INV_LIST = 'master_inventory',
   INV_ADD = 'add_inventory',
+  INV_EDIT = 'edit_inventory',
   INV_IN_OUT = 'in_out_inventory',
   INV_ROOMS = 'manage_room_inventory',
-  DASHBOARD= 'dashboard',
+  INV_SELECT = 'select_inventory',
+  DASHBOARD = 'dashboard',
   ADD_SUCCESS = 'add_success',
   UPDATE_SUCCESS = 'update_success'
+}
+
+export enum SESSION_PARAMS {
+  INV_EDIT = 'edit_item',
+  INV_IN_OUT = 'in_out_item'
 }
 
 export enum ACTIONS {

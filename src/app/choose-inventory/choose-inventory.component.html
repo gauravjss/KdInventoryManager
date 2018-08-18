@@ -1,7 +1,3 @@
-<div class="container">
-  <div class="row">
-    <h3>Master Inventory</h3>
-  </div>
-</div>
+
 <app-filter (filterChanged)="onFilterChanged($event)" (filterFieldChanged)="onFilterFieldChanged($event)" ></app-filter>
 <app-inventory-list [filterField]=filterField [filterItem]=filterItem [navigationPath]=navigationPath></app-inventory-list>

@@ -13,15 +13,19 @@
         </div>
         <div class="form-group">
           <label for="description">Item Description (Optional)</label>
-          <input type="description"  formControlName="description" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter item description"  >
+          <input type="text"  formControlName="description" class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Enter item description"  >
           <small id="descriptionHelp" class="form-text text-muted">Anything informative about the item like brand, store etc.</small>
         </div>
         <div class="form-group" >
           <label for="barcode">Barcode (Optional)  </label>
-          <input type="text"  formControlName="barcode" class="form-control" id="barcode"  placeholder="Enter Barcode Information" >
+          <input type="tel"  formControlName="barcode" class="form-control" id="barcode"  placeholder="Enter Barcode Information" >
         </div> <div class="form-group" >
           <label for="price">Price (Optional)  </label>
           <input type="text"  formControlName="price" class="form-control" id="price"  placeholder="Enter Price" >
+        <div [hidden]="price.valid || price.pristine"
+             class="alert alert-danger">
+          Please enter a valid Price
+        </div>
         </div>
         <div class="form-group" >
           <label for="weight">Weight  </label>
