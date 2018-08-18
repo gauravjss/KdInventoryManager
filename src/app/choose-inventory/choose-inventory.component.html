@@ -1,3 +1,9 @@
-
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Please select and Item to Continue</h3>
+    </div>
+  </div>
+</div>
 <app-filter (filterChanged)="onFilterChanged($event)" (filterFieldChanged)="onFilterFieldChanged($event)" ></app-filter>
 <app-inventory-list [filterField]=filterField [filterItem]=filterItem [navigationPath]=navigationPath></app-inventory-list>
