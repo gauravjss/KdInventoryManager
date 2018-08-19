@@ -6,7 +6,6 @@ import {MODULE_URL} from './common/constants';
 import {EnterInventoryComponent} from './enter-inventory/enter-inventory.component';
 import {InventoryInOutComponent} from './inventory-in-out/inventory-in-out.component';
 import {AddSuccessComponent} from './add-success/add-success.component';
-import {UpdateSuccessComponent} from './update-success/update-success.component';
 import {ChooseInventoryComponent} from './choose-inventory/choose-inventory.component';
 import {EditInventoryComponent} from './edit-inventory/edit-inventory.component';
 import {InOutSuccessComponent} from './in-out-success/in-out-success.component';
