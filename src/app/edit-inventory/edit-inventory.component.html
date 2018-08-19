@@ -88,10 +88,10 @@
             Stock Room is Required
           </div>
         </div>
-        <!--<div *ngIf="showServiceError"
+        <div *ngIf="showFailureMessage"
              class="alert alert-danger">
-          {{serviceErrorMessage}}
-        </div>-->
+          There is some problem with the services, try again after some time or report this to the Admin.
+        </div>
         <button type="submit" class="btn btn-primary" [disabled]="!inventoryEditForm.valid" >Update</button> &nbsp;
         <button type="button" class="btn btn-secondary" (click)="inventoryEditForm.reset()">Reset</button>
       </form>

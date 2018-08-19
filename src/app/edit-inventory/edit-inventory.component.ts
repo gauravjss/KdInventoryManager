@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Inventory} from '../models/inventory';
 import {locationList, MODULE_URL, SESSION_PARAMS} from '../common/constants';
 import {InventoryService} from '../service/inventory.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-inventory',
@@ -12,18 +13,20 @@ import {InventoryService} from '../service/inventory.service';
 export class EditInventoryComponent implements OnInit {
 
   showSuccessMessage = false;
+  showFailureMessage = false;
   updatedItem: string;
   inventoryEditForm: FormGroup;
   inventoryItem: Inventory;
   locations: string[];
-  constructor(private inventoryService: InventoryService) { }
+  constructor(private inventoryService: InventoryService,
+              private router: Router) { }
 
   ngOnInit() {
     if (sessionStorage.getItem(SESSION_PARAMS.INV_EDIT)) {
       this.inventoryItem = JSON.parse(sessionStorage.getItem(SESSION_PARAMS.INV_EDIT));
     }
     this.locations = locationList;
-    console.log(this.inventoryItem);
+    // Form Initialization
     this.inventoryEditForm = new FormGroup({
       itemName: new FormControl(this.inventoryItem.Name, [Validators.required]),
       description: new FormControl(this.inventoryItem.Description),
@@ -37,17 +40,17 @@ export class EditInventoryComponent implements OnInit {
   }
 
   onEdit() {
+    this.showFailureMessage = false;
     this.setInventoryValues();
 
     this.inventoryService.updateInventory(this.inventoryItem, null, null).subscribe(
       (result) => {
         console.log(result);
         if (JSON.parse(JSON.stringify(result)).status === 200) {
-          this.showSuccessMessage = true;
-          this.updatedItem = JSON.parse(JSON.stringify(result)).item.Name;
-         // this.showDetails = false;
+          sessionStorage.setItem(SESSION_PARAMS.UPDATED_ITEM,  JSON.parse(JSON.stringify(result)).item.Name);
+          this.router.navigateByUrl(MODULE_URL.UPDATE_SUCCESS);
         } else {
-          // this.showFailureMessage =  true;
+          this.showFailureMessage =  true;
         }
       });
   }

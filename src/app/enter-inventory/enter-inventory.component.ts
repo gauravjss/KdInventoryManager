@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./enter-inventory.component.css']
 })
 export class EnterInventoryComponent implements OnInit {
-  showServiceError = false;
+  showFailureMessage = false;
   serviceErrorMessage: string;
   locations: string[];
   inventoryItemForm: FormGroup;
@@ -35,13 +35,13 @@ export class EnterInventoryComponent implements OnInit {
   }
 
   onAdd() {
-    this.showServiceError = false;
+    this.showFailureMessage = false;
     this.setInventoryValues();
 
     this.inventoryService.addInventoryData(this.inventoryItem).subscribe((response) => {
       console.log(response);
       if (JSON.parse(JSON.stringify(response)).code !== 200) {
-        this.showServiceError = true;
+        this.showFailureMessage = true;
         this.serviceErrorMessage =  JSON.parse(JSON.stringify(response)).message;
       } else {
         this.router.navigateByUrl(MODULE_URL.ADD_SUCCESS);

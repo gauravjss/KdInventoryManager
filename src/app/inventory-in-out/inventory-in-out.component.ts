@@ -60,7 +60,6 @@ export class InventoryInOutComponent implements OnInit {
           itemName: 'select'
           // other controller names goes here
         });*/
-        this.showDetails = false;
       });
   }
   get quantity() {return this.inventoryInOutForm.get('quantity'); }
@@ -75,5 +74,4 @@ export class InventoryInOutComponent implements OnInit {
    this.inventoryItem = this.inventoryList.find( item => item._id === _id );
     this.showDetails = true;
   }*/
-
 }
