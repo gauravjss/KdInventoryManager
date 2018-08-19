@@ -18,7 +18,6 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { MasterInvComponent } from './master-inv/master-inv.component';
 import { InventoryInOutComponent } from './inventory-in-out/inventory-in-out.component';
 import { AddSuccessComponent } from './add-success/add-success.component';
-import { UpdateSuccessComponent } from './update-success/update-success.component';
 import { ChooseInventoryComponent } from './choose-inventory/choose-inventory.component';
 import { EditInventoryComponent } from './edit-inventory/edit-inventory.component';
 import { InOutSuccessComponent } from './in-out-success/in-out-success.component';
@@ -38,7 +37,6 @@ import { EditSuccessComponent } from './edit-success/edit-success.component';
     MasterInvComponent,
     InventoryInOutComponent,
     AddSuccessComponent,
-    UpdateSuccessComponent,
     ChooseInventoryComponent,
     EditInventoryComponent,
     InOutSuccessComponent,
