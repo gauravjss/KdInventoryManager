@@ -80,7 +80,7 @@ export class InventoryService implements OnInit  {
     "Name":" ${inventory.Name}",
     "Description":" ${inventory.Description}",
     "Price": ${inventory.Price},
-    "QR_Code": ${inventory.QR_Code},
+    "QR_Code": "${inventory.QR_Code}",
     "Weight":" ${inventory.Weight}",
     "Location":" ${inventory.Location}",
     "Quantity": ${inventory.Quantity}
