@@ -45,10 +45,10 @@ export class EditInventoryComponent implements OnInit {
 
     this.inventoryService.updateInventory(this.inventoryItem, null, null).subscribe(
       (result) => {
-        console.log(result);
         if (JSON.parse(JSON.stringify(result)).status === 200) {
-          sessionStorage.setItem(SESSION_PARAMS.UPDATED_ITEM,  JSON.parse(JSON.stringify(result)).item.Name);
-          this.router.navigateByUrl(MODULE_URL.UPDATE_SUCCESS);
+          sessionStorage.setItem(SESSION_PARAMS.UPDATED_ITEM,
+            ` Inventory Details Successfully Updated for ${this.inventoryItem.Name} in the Server `);
+          this.router.navigateByUrl(MODULE_URL.SUCCESS);
         } else {
           this.showFailureMessage =  true;
         }
@@ -65,7 +65,6 @@ export class EditInventoryComponent implements OnInit {
     this.inventoryItem.Location = formValue.location;
     this.inventoryItem.QR_Code =  formValue.barcode;
     this.inventoryItem.Price = formValue.price;
-    console.log(this.inventoryItem);
   }
 
 

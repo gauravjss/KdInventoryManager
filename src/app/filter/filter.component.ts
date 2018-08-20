@@ -18,12 +18,10 @@ export class FilterComponent implements OnInit {
   }
 
   modelChanged() {
-    console.log(this.filterData);
     this.filterChanged.emit(this.filterData);
   }
 
   fieldModelChanged() {
-    console.log(this.filterField);
     this.filterData = '';
     this.filterChanged.emit(this.filterData);
     this.filterFieldChanged.emit(this.filterField);

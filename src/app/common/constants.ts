@@ -3,13 +3,10 @@ export enum MODULE_URL {
   INV_ADD = 'add_inventory',
   INV_EDIT = 'edit_inventory',
   INV_IN_OUT = 'in_out_inventory',
-  INV_ROOMS = 'manage_room_inventory',
   INV_SELECT = 'select_inventory',
   DASHBOARD = 'dashboard',
-  ADD_SUCCESS = 'add_success',
-  IN_OUT_SUCCESS = 'in_out_success',
-  EDIT_SUCCESS = 'edit_success',
-  UPDATE_SUCCESS = 'update_success'
+  SUCCESS = 'success_screen',
+  INVENTORY_LOG = 'inventory_log'
 }
 
 export enum SESSION_PARAMS {

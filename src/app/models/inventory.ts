@@ -14,3 +14,17 @@ export class Inventory {
   }
 
 }
+
+export class InventoryLog {
+
+  Name: string;
+  CompletedAt: string;
+  Action: string;
+  Quantity: number;
+  Location: string;
+  __v: number;
+  _id: string;
+
+  constructor() {
+  }
+}

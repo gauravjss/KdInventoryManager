@@ -1,0 +1,24 @@
+<div class="container padding-top-10">
+  <div class="row">
+    <h3>Inventory Log</h3>
+    <div class="col-12 padding-top-10" style="cursor: pointer" *ngFor="let inventoryLog of inventoryLogData ; let i =index">
+      <div class="card">
+        <h5 class="card-header">{{inventoryLog.Name | capitalize: true}}</h5>
+        <div class="card-body">
+          <table class="table" role="table">
+            <tr role="row">
+              <td role="cell" > <b>Quantity: </b>{{inventoryLog.Quantity}}</td>
+              <td role="cell"><b>Action: </b>{{inventoryLog.Action}}</td>
+            </tr>
+            <tbody role="rowgroup">
+            <tr>
+              <td role="cell"><b>Time: </b>{{inventoryLog.CompletedAt}}</td>
+              <td role="cell"><b>Location: </b>{{inventoryLog.Location}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

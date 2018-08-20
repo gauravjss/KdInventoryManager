@@ -17,11 +17,10 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MasterInvComponent } from './master-inv/master-inv.component';
 import { InventoryInOutComponent } from './inventory-in-out/inventory-in-out.component';
-import { AddSuccessComponent } from './add-success/add-success.component';
 import { ChooseInventoryComponent } from './choose-inventory/choose-inventory.component';
 import { EditInventoryComponent } from './edit-inventory/edit-inventory.component';
-import { InOutSuccessComponent } from './in-out-success/in-out-success.component';
-import { EditSuccessComponent } from './edit-success/edit-success.component';
+import { InventoryLogComponent } from './inventory-log/inventory-log.component';
+import { SuccessScreenComponent } from './success-screen/success-screen.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +35,10 @@ import { EditSuccessComponent } from './edit-success/edit-success.component';
     FilterPipe,
     MasterInvComponent,
     InventoryInOutComponent,
-    AddSuccessComponent,
     ChooseInventoryComponent,
     EditInventoryComponent,
-    InOutSuccessComponent,
-    EditSuccessComponent
+    InventoryLogComponent,
+    SuccessScreenComponent
   ],
   imports: [
     BrowserModule,

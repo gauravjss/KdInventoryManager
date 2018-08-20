@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/internal/Observable';
 import {map, retry, catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {Inventory} from '../models/inventory';
+import {Inventory, InventoryLog} from '../models/inventory';
 import {HEADER_PARAMS} from '../common/constants';
 
 @Injectable({
@@ -27,6 +27,31 @@ export class InventoryService implements OnInit  {
       retry(2),
       catchError(this.handleError)
     );
+  }
+
+  getInventoryLog(): Observable<InventoryLog[]> {
+    return this._httpClient.get(`${this.baseURL}/kdInventoryLog`).pipe(
+      map( data => {
+        return Object.values(data)[0];
+      }),
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
+  addInventoryLog(inventoryLog: InventoryLog): Observable<string> {
+    const httpOptions = {
+      headers: new HttpHeaders(HEADER_PARAMS)
+    };
+    const inventoryLogBody = `{
+    "Name":" ${inventoryLog.Name}",
+    "Action":" ${inventoryLog.Action}",
+    "Location":" ${inventoryLog.Location}",
+    "Quantity": ${inventoryLog.Quantity}
+    }`;
+    return this._httpClient.post<any>(`${this.baseURL}/kdInventoryLog`,
+      inventoryLogBody ,
+      httpOptions).pipe(catchError(this.handleError));
   }
 
   addInventoryData(inventory: Inventory): Observable<string> {

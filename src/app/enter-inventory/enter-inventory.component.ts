@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-import {locationList, MODULE_URL} from '../common/constants';
+import {locationList, MODULE_URL, SESSION_PARAMS} from '../common/constants';
 import {InventoryService} from '../service/inventory.service';
 import {Inventory} from '../models/inventory';
 import {Router} from '@angular/router';
@@ -39,12 +39,12 @@ export class EnterInventoryComponent implements OnInit {
     this.setInventoryValues();
 
     this.inventoryService.addInventoryData(this.inventoryItem).subscribe((response) => {
-      console.log(response);
       if (JSON.parse(JSON.stringify(response)).code !== 200) {
         this.showFailureMessage = true;
         this.serviceErrorMessage =  JSON.parse(JSON.stringify(response)).message;
       } else {
-        this.router.navigateByUrl(MODULE_URL.ADD_SUCCESS);
+        sessionStorage.setItem(SESSION_PARAMS.UPDATED_ITEM, ` ${this.inventoryItem.Name} Successfully added to the Inventory`);
+        this.router.navigateByUrl(MODULE_URL.SUCCESS);
       }
     });
   }
@@ -58,7 +58,6 @@ export class EnterInventoryComponent implements OnInit {
     this.inventoryItem.Location = formValue.location;
     this.inventoryItem.QR_Code =  formValue.barcode;
     this.inventoryItem.Price = formValue.price;
-    console.log(this.inventoryItem);
   }
 
   get itemName() {return this.inventoryItemForm.get('itemName'); }

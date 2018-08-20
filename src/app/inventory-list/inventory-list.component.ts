@@ -30,7 +30,6 @@ export class InventoryListComponent implements OnInit {
       sessionStorage.setItem(SESSION_PARAMS.INV_IN_OUT, JSON.stringify(inventoryItem));
     }
     this.router.navigateByUrl(this.navigationPath);
-    console.log(inventoryItem);
   }
 
 }
