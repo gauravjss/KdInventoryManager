@@ -1,0 +1,231 @@
+{
+    "inventoryLog": [
+      {
+        "Quantity": 1,
+        "CompletedAt": 1534739596836,
+        "_id": "5b7a448c0c93f000143ebb9d",
+        "Name": "Oreo Cereal",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1534740654362,
+        "_id": "5b7a48ae0c93f000143ebb9e",
+        "Name": "Tide Original HE Turbo",
+        "Action": "OUT",
+        "Location": "Laundry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1534740662246,
+        "_id": "5b7a48b60c93f000143ebb9f",
+        "Name": "Tide Original HE Turbo",
+        "Action": "IN",
+        "Location": "Laundry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1535592719230,
+        "_id": "5b87490fbeaf030014a714f0",
+        "Name": "Kala Chana",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1535592738724,
+        "_id": "5b874922beaf030014a714f1",
+        "Name": "Chana Dal",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 4,
+        "CompletedAt": 1536290621235,
+        "_id": "5b91ef3d27b8d80014ddb28a",
+        "Name": "Honey Nut Cheerios Cereal",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 2,
+        "CompletedAt": 1536290694307,
+        "_id": "5b91ef8627b8d80014ddb28b",
+        "Name": "Aveeno Baby Daily Moisture Lotion",
+        "Action": "IN",
+        "Location": "Cosmetics",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1536290725666,
+        "_id": "5b91efa527b8d80014ddb28c",
+        "Name": "Old Spice Body Wash",
+        "Action": "OUT",
+        "Location": "Toiletries",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1536290734917,
+        "_id": "5b91efae27b8d80014ddb28d",
+        "Name": "Aveeno Body Wash",
+        "Action": "OUT",
+        "Location": "Toiletries",
+        "__v": 0
+      },
+      {
+        "Quantity": 2,
+        "CompletedAt": 1536517051563,
+        "_id": "5b9563bb688ca00014ffc263",
+        "Name": "Parle G",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1536523004267,
+        "_id": "5b957afc821fe300149df470",
+        "Name": "Reynolds Aluminium Foil",
+        "Action": "OUT",
+        "Location": "Kitchen",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537329492947,
+        "_id": "5ba1c95423fd780014aaa788",
+        "Name": "Red Chilli Powder",
+        "Action": "IN",
+        "Location": "Kitchen",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537329499534,
+        "_id": "5ba1c95b23fd780014aaa789",
+        "Name": "Shan Garam Masala",
+        "Action": "IN",
+        "Location": "Kitchen",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537329507284,
+        "_id": "5ba1c96323fd780014aaa78a",
+        "Name": "Poha",
+        "Action": "IN",
+        "Location": "Kitchen",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537329513440,
+        "_id": "5ba1c96923fd780014aaa78b",
+        "Name": "Swad Besan",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537329528207,
+        "_id": "5ba1c97823fd780014aaa78c",
+        "Name": "Sujata Aata",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537660897875,
+        "_id": "5ba6d7e10563e40014ea254f",
+        "Name": "Clover Honey",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537660926792,
+        "_id": "5ba6d7fe0563e40014ea2550",
+        "Name": "Cumin Seeds",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 2,
+        "CompletedAt": 1537661010690,
+        "_id": "5ba6d8520563e40014ea2551",
+        "Name": "Honey Nut Cheerios Cereal",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537661018069,
+        "_id": "5ba6d85a0563e40014ea2552",
+        "Name": "Oreo Cereal",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537661050657,
+        "_id": "5ba6d87a0563e40014ea2553",
+        "Name": "Swad Besan",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1537713236591,
+        "_id": "5ba7a45438144d00146fdd8a",
+        "Name": "Mustard Seeds Rai",
+        "Action": "OUT",
+        "Location": "Kitchen",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1538226361692,
+        "_id": "5baf78b9357da000141de8c3",
+        "Name": "Clover Honey",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1538226371824,
+        "_id": "5baf78c3357da000141de8c4",
+        "Name": "Sugar",
+        "Action": "IN",
+        "Location": "Pantry",
+        "__v": 0
+      },
+      {
+        "Quantity": 1,
+        "CompletedAt": 1543633480209,
+        "_id": "5c01fa48dbbc9f00146c812d",
+        "Name": "Sujata Aata",
+        "Action": "OUT",
+        "Location": "Pantry",
+        "__v": 0
+      }
+    ],
+    "responseCode": 200,
+    "message": "Greetings from KD Home Inventory"
+  }

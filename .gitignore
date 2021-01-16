@@ -42,3 +42,6 @@ src/assets/images/in_out.jpg
 src/assets/images/inventory_in_out.png
 src/assets/images/inventory_management.png
 src/assets/images/rooms.jpg
+.env
+package-lock.json
+package-lock.json

@@ -26,8 +26,16 @@
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
     "jquery.easing": "^1.4.1",
+    "ng": "0.0.0",
+    "node-sass": "^4.14.1",
     "rxjs": "^6.0.0",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.11"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.8",
